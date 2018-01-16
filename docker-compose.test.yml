@@ -1,0 +1,15 @@
+version: '3.4'
+x-environment: &environment
+  environment:
+    - POSTGRES_DB=test_pg_host
+    - TESTING=1
+    - SERVER_NAME=127.0.0.1:5000
+
+services:
+  {{cookiecutter.app_name}}:
+    command:
+      - run_tests
+    <<: *environment
+
+  {{cookiecutter.app_name}}_db:
+    <<: *environment

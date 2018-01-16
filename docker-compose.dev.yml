@@ -1,0 +1,9 @@
+version: '3.4'
+services:
+  {{cookiecutter.app_name}}:
+    command:
+      - run_dev
+    volumes: 
+      - .:/var/www/app
+    stdin_open: true
+    tty: true

@@ -1,0 +1,27 @@
+voluptuous
+Flask
+SQLAlchemy
+Flask-SQLAlchemy
+Flask-Migrate
+ujson
+requests
+furl
+pytest
+pytest-cov
+raven
+psycopg2
+pprintpp
+
+{%- if cookiecutter.mail -%}
+Flask-Mail
+{%- endif -%}
+
+Flask-Builder
+pgcli
+{%- if cookiecutter.celery -%}
+celery
+{%- endif -%}
+
+redis
+gunicorn
+ipdb
