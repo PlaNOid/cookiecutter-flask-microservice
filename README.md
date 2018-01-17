@@ -1,3 +1,3 @@
-# {{cookiecutter.app_name|capitalize}}
+# {{cookiecutter.full_app_name}}
 
 ## {{ project_short_description }}
