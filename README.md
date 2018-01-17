@@ -1,3 +1,3 @@
 # {{cookiecutter.app_name|capitalize}}
 
-A lot of useful information....
+## {{ project_short_description }}
