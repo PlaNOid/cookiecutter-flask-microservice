@@ -1,0 +1,11 @@
+{
+    "full_name": "Y-Bro",
+    "app_name": "Complexity",
+    "use_mail": "n",
+    "use_celery": "n",
+    "repo_name": "complexity",
+    "project_short_description": "Refreshingly simple static site generator.",
+    "release_date": "2018-01-17",
+    "year": "2018",
+    "version": "0.1.1"
+}

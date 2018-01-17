@@ -12,15 +12,15 @@ raven
 psycopg2
 pprintpp
 
-{%- if cookiecutter.mail -%}
+{% if cookiecutter.use_mail == 'y' %}
 Flask-Mail
-{%- endif -%}
+{% endif %}
 
 Flask-Builder
 pgcli
-{%- if cookiecutter.celery -%}
+{% if cookiecutter.use_celery == 'y' %}
 celery
-{%- endif -%}
+{% endif %}
 
 redis
 gunicorn

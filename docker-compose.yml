@@ -32,7 +32,7 @@ services:
       - {{cookiecutter.app_name}}-redis:/data
     command: ["redis-server", "--appendonly", "yes"]
 
-{%- if cookiecutter.celery -%}
+{% if cookiecutter.use_celery == 'y' %}
   {{cookiecutter.app_name}}_rabbit:
     container_name: {{cookiecutter.app_name}}_rabbit
     image: rabbitmq:latest
@@ -40,7 +40,7 @@ services:
     volumes:
       - {{cookiecutter.app_name}}-rabbit:/var/lib/rabbitmq
     <<: *env-files
-{%- endif -%}
+{% endif %}
 
 volumes:
   {{cookiecutter.app_name}}-db:
@@ -48,7 +48,7 @@ volumes:
   {{cookiecutter.app_name}}-redis:
     driver: local
 
-{%- if cookiecutter.celery -%}
+{% if cookiecutter.use_celery == 'y' %}
   {{cookiecutter.app_name}}-rabbit:
     driver: local
-{%- endif -%}
+{% endif %}
