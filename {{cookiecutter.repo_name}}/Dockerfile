@@ -18,7 +18,7 @@ WORKDIR /var/www/app
 
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 
-ADD . /var/www/app
+ADD ../ /var/www/app
 
 ENV FLASK_APP run.py
 
