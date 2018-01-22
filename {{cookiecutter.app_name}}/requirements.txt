@@ -11,17 +11,14 @@ pytest-cov
 raven
 psycopg2
 pprintpp
-
-{% if cookiecutter.use_mail == 'y' %}
+{-% if cookiecutter.use_mail == 'y' %-}
 Flask-Mail
 {% endif %}
-
 Flask-Builder
 pgcli
-{% if cookiecutter.use_celery == 'y' %}
+{%- if cookiecutter.use_celery == 'y' -%}
 celery
 {% endif %}
-
 redis
 gunicorn
 ipdb
