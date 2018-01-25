@@ -16,6 +16,7 @@ logging.basicConfig(
 
 app = create_app(name='{{cookiecutter.app_name}}')
 init_app(app)
+app.register_error_handler(ApiException, lambda err: err.to_result())
 
 {% if cookiecutter.use_mail == 'y' %}
 app.register_error_handler(ApiException, lambda err: err.to_result())
