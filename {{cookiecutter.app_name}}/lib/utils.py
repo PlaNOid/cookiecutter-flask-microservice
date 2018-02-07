@@ -45,7 +45,7 @@ def dataschema(schema):
     def decorator(f):
         def new_func(*args, **kwargs):
             try:
-                kwargs.update(schema(request.get_json()))
+                kwargs.update(schema(request.get_json() or request.values.to_dict(flat=False)))
             except Invalid as e:
                 raise ApiException('Invalid data: %s (path: %s)' %
                                    (e.msg, '.'.join(map(str, e.path))))
