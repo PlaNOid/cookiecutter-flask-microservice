@@ -12,8 +12,11 @@ build:
 up:
 	$(COMPOSE-DEV) up
 
+stop:
+	$(COMPOSE-DEV) down
+
 migrate:
-	$(COMPOSE-DEV)exec {{cookiecutter.app_name}} flask db migrate
+	$(COMPOSE-DEV) exec {{cookiecutter.app_name}} flask db migrate
 
 shell:
 	$(COMPOSE-DEV) exec {{cookiecutter.app_name}} flask debug
