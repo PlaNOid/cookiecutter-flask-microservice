@@ -1,4 +1,4 @@
-.idea
+.idea/
 .virtualenv
 ghostdriver.log
 *.pyc
