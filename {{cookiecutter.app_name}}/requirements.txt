@@ -9,7 +9,7 @@ furl
 pytest
 pytest-cov
 raven
-psycopg2
+psycopg2-binary
 pprintpp
 {%- if cookiecutter.use_mail == 'y' -%}
 Flask-Mail
