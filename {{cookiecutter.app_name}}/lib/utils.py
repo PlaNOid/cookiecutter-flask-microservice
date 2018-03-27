@@ -79,3 +79,11 @@ def find_models_and_tables():
                    or item.__class__ is Table:
                     models_dict[name] = item
     return models_dict
+
+def setattrs(obj, **kwargs):
+    """ Setting multiple object attributes at once """
+
+    attrs = (a for a in dir(obj) if not a.startswith('_'))
+    for attr in attrs:
+        if attr in kwargs:
+            setattr(obj, attr, kwargs[attr])
