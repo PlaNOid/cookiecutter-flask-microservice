@@ -33,14 +33,6 @@ def get_url_map(app):
     return url_map
 
 
-def get_consts_map():
-    from app.templates.constants import HELP
-
-    return dict(
-        TEMPLATES=dict(HELP=HELP)
-    )
-
-
 def dataschema(schema):
     def decorator(f):
         def new_func(*args, **kwargs):
