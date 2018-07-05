@@ -10,8 +10,8 @@ from sqlalchemy.sql.schema import Table
 from werkzeug import find_modules, import_string
 
 
-def ujsonify(**data):
-    return Response(ujson.dumps(data), mimetype='application/json')
+def ujsonify(status=200, **data,):
+    return Response(ujson.dumps(data), mimetype='application/json', status=status)
 
 
 def get_url_map(app):
