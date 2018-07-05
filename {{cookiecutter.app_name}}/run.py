@@ -2,6 +2,7 @@ import logging
 import subprocess
 from IPython import embed
 from flask import url_for, request
+from flasgger import Swagger
 
 from flask_builder import create_app, create_db, is_db_exists, drop_db, init_app, init_mail
 from lib.utils import ApiException, find_models_and_tables
@@ -20,6 +21,17 @@ app.register_error_handler(ApiException, lambda err: err.to_result())
 
 {% if cookiecutter.use_mail == 'y' %}
 app.register_error_handler(ApiException, lambda err: err.to_result())
+{% endif %}
+
+
+{% if cookiecutter.use_swagger == 'y' %}
+app.config['SWAGGER'] = {
+    'title': '{{cookiecutter.full_app_name}} API',
+    'uiversion': 2,
+    'description': '{{cookiecutter.project_short_description}}',
+    'termsOfService': ''
+}
+swagger = Swagger(app)
 {% endif %}
 
 @app.cli.command()
