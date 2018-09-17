@@ -72,6 +72,7 @@ def find_models_and_tables():
                     models_dict[name] = item
     return models_dict
 
+
 def setattrs(obj, **kwargs):
     """ Setting multiple object attributes at once """
 
@@ -79,3 +80,19 @@ def setattrs(obj, **kwargs):
     for attr in attrs:
         if attr in kwargs:
             setattr(obj, attr, kwargs[attr])
+
+
+def success(prepared_obj=None, **kwargs):
+    resp = prepared_obj if prepared_obj is not None else kwargs
+    return ujsonify(
+        data=resp
+    )
+
+
+def fail(*, title=None, detail=None, status=400):
+    resp = {}
+    if title:
+        resp['title'] = title
+    if detail:
+        resp['detail'] = detail
+    return ujsonify(**resp), status
