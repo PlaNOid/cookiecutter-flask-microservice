@@ -10,6 +10,8 @@ services:
     build: .
     ports:
       - "5000:5000"
+    volumes:
+      - {{cookiecutter.app_name}}-static:/var/www/app/static/img/{{cookiecutter.app_name}}
     depends_on:
       - {{cookiecutter.app_name}}_db
       - {{cookiecutter.app_name}}_redis
@@ -46,7 +48,8 @@ volumes:
     driver: local
   {{cookiecutter.app_name}}-redis:
     driver: local
-
+  {{cookiecutter.app_name}}-static:
+    driver: local
 {% if cookiecutter.use_celery == 'y' %}
   {{cookiecutter.app_name}}-rabbit:
     driver: local
