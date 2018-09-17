@@ -29,3 +29,6 @@ celery
 {%- if cookiecutter.use_swagger == 'y' -%}
 flasgger
 {% endif %}
+{%- if cookiecutter.use_webargs == 'y' -%}
+webargs
+{% endif %}
