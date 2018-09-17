@@ -10,6 +10,7 @@ furl
 {% endif %}
 pytest
 pytest-cov
+pylama
 raven
 psycopg2-binary
 pprintpp
