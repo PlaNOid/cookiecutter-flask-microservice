@@ -5,7 +5,9 @@ Flask-SQLAlchemy
 Flask-Migrate
 ujson
 requests
+{%- if cookiecutter.use_furl == 'y' -%}
 furl
+{% endif %}
 pytest
 pytest-cov
 raven

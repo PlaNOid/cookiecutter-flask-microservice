@@ -4,6 +4,7 @@
     "app_name": "short_app_name_in_lover_case",
     "use_mail": "n",
     "use_celery": "n",
+    "use_furl": "y",
     "project_short_description": "Some useful information",
     "release_date": "2018-01-17",
     "year": "2018",
