@@ -3,11 +3,9 @@
 ghostdriver.log
 *.pyc
 node_modules/
-upload/
 __MACOSX
 .DS_Store
 npm-debug.log
-local_config.py
 *.egg-info
 tests/.cache
 __pycache__
