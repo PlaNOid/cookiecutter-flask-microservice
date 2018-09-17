@@ -2,8 +2,9 @@ import logging
 import subprocess
 from IPython import embed
 from flask import url_for, request
+{% if cookiecutter.use_swagger == 'y' %}
 from flasgger import Swagger
-
+{% endif %}
 from flask_builder import create_app, create_db, is_db_exists, drop_db, init_app, init_mail
 from lib.utils import ApiException, find_models_and_tables
 
