@@ -17,18 +17,12 @@ pgcli
 redis
 gunicorn
 ipdb
-{%- if cookiecutter.use_furl == 'y' -%}
 furl
-{% endif %}
+flasgger
+webargs
 {%- if cookiecutter.use_mail == 'y' -%}
 Flask-Mail
 {% endif %}
 {%- if cookiecutter.use_celery == 'y' -%}
 celery
-{% endif %}
-{%- if cookiecutter.use_swagger == 'y' -%}
-flasgger
-{% endif %}
-{%- if cookiecutter.use_webargs == 'y' -%}
-webargs
 {% endif %}
