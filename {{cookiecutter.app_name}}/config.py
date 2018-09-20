@@ -27,10 +27,16 @@ SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASS
 SERVER_NAME = os.environ.get("SERVER_NAME")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
+{% if cookiecutter.use_furl == 'y' %}
+SCHEME = os.environ.get('SCHEME', 'http')
+DOMAIN = os.environ.get('DOMAIN', '127.0.0.1')
+PORT = os.environ.get('PORT', 5000)
+{% endif %}
 
 {% if cookiecutter.use_mail == 'y' %}
 MAIL_SERVER = os.environ.get("MAIL_SERVER")
 MAIL_PORT = os.environ.get("MAIL_PORT")
+MAIL_USE_TLS = os.environ.get("MAIL_USE_TLS")
 MAIL_USE_SSL = os.environ.get("MAIL_USE_SSL")
 MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
 MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")

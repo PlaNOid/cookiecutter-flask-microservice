@@ -1,9 +1,13 @@
 import logging
 import subprocess
 from IPython import embed
-from flask import url_for, request
+from flask import url_for, abort
+{% if cookiecutter.use_swagger == 'y' %}
 from flasgger import Swagger
-
+{% endif %}
+{% if cookiecutter.use_webargs == 'y' %}
+from webargs.flaskparser import parser
+{% endif %}
 from flask_builder import create_app, create_db, is_db_exists, drop_db, init_app, init_mail
 from lib.utils import ApiException, find_models_and_tables
 
@@ -17,12 +21,10 @@ logging.basicConfig(
 
 app = create_app(name='{{cookiecutter.app_name}}')
 init_app(app)
-app.register_error_handler(ApiException, lambda err: err.to_result())
-
 {% if cookiecutter.use_mail == 'y' %}
-app.register_error_handler(ApiException, lambda err: err.to_result())
+init_mail(app)
 {% endif %}
-
+app.register_error_handler(ApiException, lambda err: err.to_result())
 
 {% if cookiecutter.use_swagger == 'y' %}
 app.config['SWAGGER'] = {
@@ -32,6 +34,14 @@ app.config['SWAGGER'] = {
     'termsOfService': ''
 }
 swagger = Swagger(app)
+{% endif %}
+
+{% if cookiecutter.use_webargs == 'y' %}
+@parser.error_handler
+def handle_parse_error(error, request):
+    response = ujsonify(**error.messages)
+    response.status_code = 400
+    abort(response)
 {% endif %}
 
 @app.cli.command()
