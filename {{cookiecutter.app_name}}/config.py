@@ -31,6 +31,8 @@ SCHEME = os.environ.get('SCHEME', 'http')
 DOMAIN = os.environ.get('DOMAIN', '127.0.0.1')
 PORT = os.environ.get('PORT', 5000)
 
+MODULE_TEMPLATE_REPO = os.environ.get('MODULE_TEMPLATE_REPO', 'https://github.com/PlaNOid/cookiecutter-flask-microservice-module-template.git')
+
 {% if cookiecutter.use_mail == 'y' %}
 MAIL_SERVER = os.environ.get("MAIL_SERVER")
 MAIL_PORT = os.environ.get("MAIL_PORT")

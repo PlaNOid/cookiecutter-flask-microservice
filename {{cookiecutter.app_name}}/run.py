@@ -5,8 +5,7 @@ from flask import url_for, abort
 from flasgger import Swagger
 from webargs.flaskparser import parser
 from flask_builder import create_app, create_db, is_db_exists, drop_db, init_app, init_mail
-from lib.utils import ApiException, find_models_and_tables, ujsonify
-
+from lib.utils import ApiException, find_models_and_tables, ujsonify, module_generator
 
 logging.basicConfig(
     level=logging.INFO,
@@ -97,6 +96,11 @@ def routes():
         print(line)
 
 
+@app.cli.command()
+def addmodule():
+    module_name = input('module name in lowercase: ')
+    status = module_generator(module_name)
+    print(status)
 
 if __name__ == '__main__':
     app.run()

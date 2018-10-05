@@ -32,3 +32,6 @@ redis-cli:
 
 test:
 	$(COMPOSE-TEST) up --build
+
+module:
+	$(COMPOSE-TEST) exec {{cookiecutter.app_name}} flask addmodule

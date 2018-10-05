@@ -9,6 +9,9 @@ from flask_sqlalchemy import Model
 from sqlalchemy.sql.schema import Table
 from werkzeug import find_modules, import_string
 
+from cookiecutter.main import cookiecutter
+from cookiecutter.exceptions import OutputDirExistsException
+from config import MODULE_TEMPLATE_REPO
 
 def ujsonify(status=200, **data,):
     return Response(ujson.dumps(data), mimetype='application/json', status=status)
@@ -96,3 +99,19 @@ def fail(*, title=None, detail=None, status=400):
     if detail:
         resp['detail'] = detail
     return ujsonify(**resp), status
+
+
+def module_generator(module_name):
+    context = {
+        'module_name': module_name,
+        'module_upper_name': module_name.upper(),
+        'model_name': module_name.capitalize()
+
+    }
+
+    try:
+        cookiecutter(MODULE_TEMPLATE_REPO, no_input=True, extra_context=context, output_dir='./app')
+    except OutputDirExistsException:
+        return f'module {module_name} already exist'
+
+    return f'module {module_name} generation success'
