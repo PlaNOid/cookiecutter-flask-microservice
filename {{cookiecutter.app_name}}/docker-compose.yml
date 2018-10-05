@@ -11,7 +11,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - {{cookiecutter.app_name}}-static:/var/www/app/static/img/{{cookiecutter.app_name}}
+      - {{cookiecutter.app_name}}-static:/var/www/app/static/upload
     depends_on:
       - {{cookiecutter.app_name}}_db
       - {{cookiecutter.app_name}}_redis

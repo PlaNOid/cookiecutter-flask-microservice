@@ -19,19 +19,17 @@ BROKER_URL = f'pyamqp://{RABBITMQ_DEFAULT_USER}:{RABBITMQ_DEFAULT_PASS}@{RABBITM
 
 POSTGRES_USER = os.environ.get("POSTGRES_USER")
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
-POSTGRES_DB = os.environ.get("POSTGRES_DB")
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
-POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
-SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}' 
+POSTGRES_DB = os.environ.get("POSTGRES_DB", '{{cookiecutter.app_name}}')
+POSTGRES_HOST = os.environ.get("POSTGRES_HOST", '{{cookiecutter.app_name}}_db')
+POSTGRES_PORT = os.environ.get("POSTGRES_PORT", '5432')
+SQLALCHEMY_DATABASE_URI = f'postgresql+psycopg2://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}'
 
 SERVER_NAME = os.environ.get("SERVER_NAME")
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-{% if cookiecutter.use_furl == 'y' %}
 SCHEME = os.environ.get('SCHEME', 'http')
 DOMAIN = os.environ.get('DOMAIN', '127.0.0.1')
 PORT = os.environ.get('PORT', 5000)
-{% endif %}
 
 {% if cookiecutter.use_mail == 'y' %}
 MAIL_SERVER = os.environ.get("MAIL_SERVER")
