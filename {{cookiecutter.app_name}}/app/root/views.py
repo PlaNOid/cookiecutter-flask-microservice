@@ -5,7 +5,7 @@ mod = Blueprint('root', __name__)
 
 @mod.route('/')
 def root_view():
-    pass
+    return 'Hello world!'
 
 
 

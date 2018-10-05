@@ -17,8 +17,8 @@ RABBITMQ_PORT = os.environ.get("RABBITMQ_PORT")
 BROKER_URL = f'pyamqp://{RABBITMQ_DEFAULT_USER}:{RABBITMQ_DEFAULT_PASS}@{RABBITMQ_HOST}:{RABBITMQ_PORT}//'
 {% endif %}
 
-POSTGRES_USER = os.environ.get("POSTGRES_USER")
-POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
+POSTGRES_USER = os.environ.get("POSTGRES_USER", 'postgres')
+POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD", '{{cookiecutter.postgres_password}}')
 POSTGRES_DB = os.environ.get("POSTGRES_DB", '{{cookiecutter.app_name}}')
 POSTGRES_HOST = os.environ.get("POSTGRES_HOST", '{{cookiecutter.app_name}}_db')
 POSTGRES_PORT = os.environ.get("POSTGRES_PORT", '5432')
