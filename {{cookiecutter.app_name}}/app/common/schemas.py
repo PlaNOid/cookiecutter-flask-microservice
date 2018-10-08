@@ -1,9 +1,7 @@
-from voluptuous import Schema, Optional, Required, Any
+from webargs import fields
 
-
-LIST_SCHEMA = Schema({
-    Required('sort_key', default='created_at'): str,
-    Required('sort_order', default='desc'): Any('desc', 'asc'),
-    Required('page', default=1): int,
-    'limit': int
-})
+FILTER_SCHEMA = {
+    'page': fields.Int(missing=1),
+    'limit': fields.Int(missing=10),
+    'sort_by': fields.Str(missing='-created_at')
+}
