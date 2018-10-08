@@ -12,7 +12,7 @@ run_dev () {
 }
 
 run_tests () {
-    pytest --pylama --cov=apps --cov-report term-missing
+    pytest --pylama --cov=app --cov-report term-missing
 }
 
 

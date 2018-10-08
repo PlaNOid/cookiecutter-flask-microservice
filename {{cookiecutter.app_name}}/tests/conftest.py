@@ -7,7 +7,7 @@ from flask_builder import create_app, create_db, drop_db, create_tables, init_ap
 APP_NAME = '{{cookiecutter.app_name}}'
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def app(request):
     """Session-wide test `Flask` application."""
     # Create DB
@@ -44,7 +44,7 @@ def app(request):
     return app
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture
 def session(app, request):
     """Creates a new database session for a test."""
     connection = app.db.engine.connect()
@@ -64,7 +64,7 @@ def session(app, request):
     return session
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope='session')
 def client(app):
     class Client(object):
         json_header = 'application/json'
