@@ -1,5 +1,4 @@
 {
-    "author_name": "Author",
     "full_app_name": "Super Application",
     "app_name": "short_app_name_in_lover_case",
     "app_locale": "en_US",
@@ -7,7 +6,5 @@
     "use_mail": "n",
     "use_celery": "n",
     "project_short_description": "Some useful information",
-    "release_date": "2018-01-17",
-    "year": "2018",
     "version": "0.1.1"
 }
