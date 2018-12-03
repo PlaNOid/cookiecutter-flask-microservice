@@ -2,7 +2,6 @@
     "full_app_name": "Super Application",
     "app_name": "short_app_name_in_lover_case",
     "app_locale": "en_US",
-    "postgres_password": "database password",
     "use_mail": "n",
     "use_celery": "n",
     "project_short_description": "Some useful information",
