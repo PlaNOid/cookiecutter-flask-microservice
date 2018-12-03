@@ -7,6 +7,11 @@ from webargs.flaskparser import parser
 from flask_builder import create_app, create_db, is_db_exists, drop_db, init_app, init_mail
 from lib.utils import ApiException, find_models_and_tables, ujsonify, module_generator
 
+from cookiecutter.main import cookiecutter
+from cookiecutter.exceptions import OutputDirExistsException
+from config import MODULE_TEMPLATE_REPO
+
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s | %(message)s',
