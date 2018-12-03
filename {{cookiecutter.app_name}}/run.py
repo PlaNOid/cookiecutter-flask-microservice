@@ -98,9 +98,20 @@ def routes():
 
 @app.cli.command()
 def addmodule():
-    module_name = input('module name in lowercase: ')
-    status = module_generator(module_name)
+    name = input('module name: ').lower()
+    context = {
+        'module_name': name,
+        'module_upper_name': name.upper(),
+        'model_name': name.capitalize()
+
+    }
+    status = f'module {name} is created'
+    try:
+        cookiecutter(MODULE_TEMPLATE_REPO, no_input=True, extra_context=context, output_dir='./app')
+    except OutputDirExistsException:
+        status = f'module {name} already exists'
     print(status)
 
+    
 if __name__ == '__main__':
     app.run()
