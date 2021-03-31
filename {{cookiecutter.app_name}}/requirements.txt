@@ -22,7 +22,7 @@ flasgger==0.8.1
 webargs==3.0.2
 ipython<7
 cookiecutter==1.6.0
-Pillow==5.2.0
+Pillow==8.1.1
 {%- if cookiecutter.use_mail == 'y' -%}
 Flask-Mail==0.9.1
 {% endif %}
