@@ -1,11 +1,11 @@
 voluptuous==0.8.1
 Flask==1.0.2
-SQLAlchemy==1.2.9
+SQLAlchemy>=1.3.0
 SQLAlchemy-serializer==0.91
 Flask-SQLAlchemy==2.3.2
 Flask-Migrate==2.2.1
 ujson==1.35
-requests==2.19.1
+requests>=2.20.0
 pytest==3.6.3
 pytest-cov==2.5.1
 pylama==7.4.3
@@ -19,7 +19,7 @@ gunicorn==19.9.0
 ipdb==0.11
 furl==1.2
 flasgger==0.8.1
-webargs==3.0.2
+webargs>=5.1.3
 ipython<7
 cookiecutter==1.6.0
 Pillow==8.1.1
